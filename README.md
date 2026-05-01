@@ -2,7 +2,7 @@
 
 > *"I die. I come back. And no matter how many times I return, the pain never fades."*
 
-Mod แนว Re:Zero เพิ่ม **Red Item** ที่ให้พลัง "Return by Death" — ตายแล้วย้อนเวลากลับต้น stage
+Mod แนว Re:Zero เพิ่ม **Legendary Item** ที่ให้พลัง "Return by Death" — ตายแล้วย้อนเวลากลับต้น stage
 
 ---
 
