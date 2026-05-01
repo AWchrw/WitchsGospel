@@ -1,0 +1,83 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+    <AssemblyName>WitchsGospel</AssemblyName>
+    <RootNamespace>WitchsGospel</RootNamespace>
+    <Nullable>disable</Nullable>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <LangVersion>latest</LangVersion>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <!-- Path ทั้งหมดอยู่ใน Directory.Build.props — แก้ที่นั่นแทน -->
+    <ManagedDir>$(RoR2GameDir)\Risk of Rain 2_Data\Managed</ManagedDir>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!-- BepInEx -->
+    <Reference Include="BepInEx">
+      <HintPath>$(BepInExDir)\core\BepInEx.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+
+    <!-- Unity -->
+    <Reference Include="UnityEngine">
+      <HintPath>$(ManagedDir)\UnityEngine.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="UnityEngine.CoreModule">
+      <HintPath>$(ManagedDir)\UnityEngine.CoreModule.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+
+    <!-- Unity Networking (HLAPI) -->
+    <Reference Include="com.unity.multiplayer-hlapi.Runtime">
+      <HintPath>$(ManagedDir)\com.unity.multiplayer-hlapi.Runtime.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+
+    <!-- RoR2 game assemblies -->
+    <Reference Include="Assembly-CSharp">
+      <HintPath>$(ManagedDir)\Assembly-CSharp.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+
+    <!-- RoR2 -->
+    <Reference Include="RoR2">
+      <HintPath>$(ManagedDir)\RoR2.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+
+    <!-- R2API -->
+    <Reference Include="R2API.Core">
+      <HintPath>$(ProfilePluginsDir)\RiskofThunder-R2API_Core\R2API.Core\R2API.Core.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="R2API.Items">
+      <HintPath>$(ProfilePluginsDir)\RiskofThunder-R2API_Items\R2API.Items\R2API.Items.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="R2API.Language">
+      <HintPath>$(ProfilePluginsDir)\RiskofThunder-R2API_Language\R2API.Language\R2API.Language.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+
+    <!-- MMHOOK -->
+    <Reference Include="MMHOOK_Assembly-CSharp">
+      <HintPath>$(ProfilePluginsDir)\RiskofThunder-HookGenPatcher\MMHOOK\MMHOOK_Assembly-CSharp.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+  </ItemGroup>
+
+  <!-- Auto-copy DLL ไปยัง plugins หลัง build -->
+  <Target Name="CopyToBepInEx" AfterTargets="Build">
+    <MakeDir Directories="$(ProfilePluginsDir)\WitchsGospel" />
+    <Copy
+      SourceFiles="$(OutputPath)$(AssemblyName).dll"
+      DestinationFolder="$(ProfilePluginsDir)\WitchsGospel"
+      SkipUnchangedFiles="true" />
+    <Message Text="Copied $(AssemblyName).dll to plugins" Importance="high" />
+  </Target>
+
+</Project>

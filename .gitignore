@@ -1,0 +1,6 @@
+bin/
+obj/
+.vs/
+*.user
+# ไฟล์ path ส่วนตัว — แต่ละคนสร้างของตัวเอง
+Directory.Build.props
