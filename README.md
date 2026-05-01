@@ -17,7 +17,7 @@ Mod แนว Re:Zero เพิ่ม **Legendary Item** ที่ให้พ�
 **เมื่อตาย:**
 - Stage รีสตาร์ทตั้งแต่ต้น
 - Inventory กลับไปเป็นเหมือนตอนเริ่ม stage นั้น
-- Gospel stack ลดลง 1 (คืนกลับเมื่อไป stage ถัดไป)
+- Gospel stack ลดลง 1 (คืนกลับเมื่อไป stage ถัดไป(ลองมาแล้ว มันไม่คืน))
 
 **เมื่อ charge หมด:**
 - ตายปกติ (Game Over)
